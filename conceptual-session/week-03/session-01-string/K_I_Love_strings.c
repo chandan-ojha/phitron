@@ -16,7 +16,7 @@ int main()
 
         int mxlen;
 
-        if (slen >= mxlen)
+        if (slen >= tlen)
         {
             mxlen = slen;
         }
