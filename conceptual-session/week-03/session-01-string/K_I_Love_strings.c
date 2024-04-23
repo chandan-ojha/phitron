@@ -1,11 +1,44 @@
 #include <stdio.h>
 #include <string.h>
+
 int main()
 {
-    char str[51];
-    fgets(str, 51, stdin);
+    int n;
+    scanf("%d", &n);
 
-    for (int)
+    while (n--)
+    {
+        char s[60], t[60];
+        scanf("%s %s", s, t);
 
-        return 0;
+        int slen = strlen(s);
+        int tlen = strlen(t);
+
+        int mxlen;
+
+        if (slen >= mxlen)
+        {
+            mxlen = slen;
+        }
+        else
+        {
+            mxlen = tlen;
+        }
+
+        for (int i = 0; i < mxlen; i++)
+        {
+            if (i < slen)
+            {
+                printf("%c", s[i]);
+            }
+            if (i < tlen)
+            {
+                printf("%c", t[i]);
+            }
+        }
+
+        printf("\n");
+    }
+
+    return 0;
 }
