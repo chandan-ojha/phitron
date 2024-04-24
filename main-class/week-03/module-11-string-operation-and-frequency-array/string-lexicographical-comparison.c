@@ -47,7 +47,7 @@ int main()
 
     int v = strcmp(a, b);
 
-    printf("%d\n", v);
+    // printf("%d\n", v);
 
     if (v < 0)
     {
