@@ -1,3 +1,15 @@
+/**
+You are given a positive integer n.
+Now print the sum of last digit and first digit of the given integers.
+Implement it using function.
+Note – It is guaranteed that all the integers will be a 4 digit value
+
+Sample Input:
+1234
+Sample Output:
+Sum = 5
+*/
+
 #include <stdio.h>
 
 int extract_sum(int n)
