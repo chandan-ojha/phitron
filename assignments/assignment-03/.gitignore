@@ -1,0 +1,11 @@
+#Files
+input.txt
+output.txt
+
+# Executables
+*.vscode
+*.app
+*.cph
+*.exe
+*.out
+*.bin
