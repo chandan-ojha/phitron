@@ -1,7 +1,7 @@
 #include <stdio.h>
 void fun(int i, int n)
 {
-    if (i == n + 1)
+    if (i == n + 1) // base case
     {
         return;
     }
