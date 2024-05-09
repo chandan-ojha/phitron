@@ -16,7 +16,7 @@ int main()
     {
         printf("Momo\n");
     }
-    else if (!a % k == 0 && !b % k == 0)
+    else
     {
         printf("No One\n");
     }
