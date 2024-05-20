@@ -10,9 +10,10 @@ int *fun()
 }
 int main()
 {
-    // int *a = new int;
-    // *a = 10;
-    // cout << *a << endl;
+    int *a = new int;
+    *a = 10;
+    cout << *a << endl;
+    delete a;
 
     // float *f = new float;
     // *f = 1.53;
