@@ -15,16 +15,16 @@ public:
     }
 };
 
-Student fun()
+Student *fun()
 {
-    Student chandan(1, 10, 4.86);
+    Student *chandan = new Student(1, 10, 4.86);
     return chandan;
 }
 
 int main()
 {
-    Student chandan = fun();
-    cout << chandan.roll << " " << chandan.cls << " " << chandan.gpa << endl;
-
+    Student *chandan = fun();
+    cout << chandan->roll << " " << chandan->cls << " " << chandan->gpa << endl;
+    delete chandan;
     return 0;
 }
