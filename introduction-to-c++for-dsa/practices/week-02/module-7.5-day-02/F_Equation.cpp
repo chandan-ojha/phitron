@@ -1,21 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
-double series_sum(int x, int n)
-{
-    double sum = 0.0;
 
-    for (int i = 2; i < n; i += 2)
+long long int equation_result(long long int x, long long int n)
+{
+    long long int sum = 0;
+
+    for (int i = 2; i <= n; i += 2)
     {
-        sum = sum + pow(x * 1.0, i * 1.0);
+        long long int power = 1;
+
+        for (int j = 1; j <= i; j++)
+        {
+            power = power * x;
+        }
+
+        sum = sum + power;
     }
 
     return sum;
 }
+
 int main()
 {
-    int x, n;
+    long long int x, n;
     cin >> x >> n;
-    int result = series_sum(x, n);
-    cout << result << endl;
+
+    long long int result = equation_result(x, n);
+
+    cout << result;
+
     return 0;
 }
