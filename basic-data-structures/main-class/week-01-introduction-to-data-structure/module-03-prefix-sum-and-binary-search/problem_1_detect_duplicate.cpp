@@ -5,45 +5,42 @@ int main()
     int n;
     cin >> n;
     int a[n];
-
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
     }
-
-    int x;
-    cin >> x;
-    int l = 0;
-    int r = n - 1;
-    int duplicate = 0;
+    int val;
+    cin >> val;
+    bool is_duplicate = false;
+    int l = 0, r = n - 1;
 
     while (l <= r)
     {
-        int mid_index = (l + r) / 2;
-
-        if (a[mid_index] == x)
+        int mid = (l + r) / 2;
+        if (a[mid] == val)
         {
-            duplicate++;
+            if (mid != 0 && a[mid - 1] == val || mid != n - 1 && a[mid + 1] == val)
+            {
+                is_duplicate = true;
+            }
+            break;
         }
-
-        if (x > a[mid_index])
+        else if (a[mid] > val)
         {
-            l = mid_index + 1;
+            r = mid - 1;
         }
         else
         {
-            r = mid_index - 1;
+            l = mid + 1;
         }
     }
 
-    if (duplicate >= 1)
+    if (is_duplicate)
     {
-        cout << "true" << endl;
+        cout << "true";
     }
     else
     {
-        cout << "false" << endl;
+        cout << "false";
     }
-
-    return 0;
 }
