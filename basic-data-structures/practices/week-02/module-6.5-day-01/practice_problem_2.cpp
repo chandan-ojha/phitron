@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 class Node
 {
 public:
@@ -32,6 +31,7 @@ void take_input(Node *&head, int v)
 void duplicate_value_check(Node *head)
 {
     int count[101] = {0};
+    bool isDuplicate = false;
 
     Node *tmp = head;
 
@@ -41,14 +41,20 @@ void duplicate_value_check(Node *head)
 
         if (count[tmp->val] > 1)
         {
-            cout << "YES" << endl;
-            return;
+            isDuplicate = true;
+            break;
         }
-
         tmp = tmp->next;
     }
 
-    cout << "NO" << endl;
+    if (isDuplicate)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
 }
 
 int main()
