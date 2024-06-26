@@ -51,6 +51,13 @@ void delete_node(Node *head, int pos) // time complexity O(N)
     delete deleteNode;
 }
 
+void delete_head(Node *&head)
+{
+    Node *deleteNode = head;
+    head = head->next;
+    delete deleteNode;
+}
+
 int main()
 {
     Node *head = new Node(10);
@@ -71,6 +78,10 @@ int main()
     if (pos >= size(head))
     {
         cout << "Invalid" << endl;
+    }
+    else if (pos == 0)
+    {
+        delete_head(head);
     }
     else
     {
