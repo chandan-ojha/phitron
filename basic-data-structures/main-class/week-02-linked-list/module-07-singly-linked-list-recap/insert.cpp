@@ -20,6 +20,7 @@ void print_linked_list(Node *head)
         cout << temp->val << " ";
         temp = temp->next;
     }
+    cout << endl;
 }
 
 int size(Node *head)
@@ -36,12 +37,12 @@ int size(Node *head)
     return count;
 }
 
-void insert(Node *head, int pos, int val)
+void insert(Node *head, int pos, int val) // time complexity - O(N)
 {
     Node *newNode = new Node(val);
     Node *temp = head;
 
-    for (int i = 1; i <= pos - 1; i++) // O(N)
+    for (int i = 1; i <= pos - 1; i++)
     {
         temp = temp->next;
     }
@@ -52,6 +53,26 @@ void insert(Node *head, int pos, int val)
     temp->next = newNode;
 }
 
+void insert_head(Node *&head, int val) // time complexity - O(1)
+{
+    Node *newNode = new Node(val);
+    newNode->next = head;
+    head = newNode;
+}
+
+void insert_tail(Node *&head, Node *&tail, int val) // time complexity - O(1)
+{
+    Node *newNode = new Node(val);
+    if (head == NULL)
+    {
+        head = newNode;
+        tail = newNode;
+        return;
+    }
+    tail->next = newNode;
+    tail = newNode;
+}
+
 int main()
 {
     Node *head = new Node(10);
@@ -59,6 +80,7 @@ int main()
     Node *b = new Node(30);
     Node *c = new Node(40);
     Node *d = new Node(50);
+    Node *tail = d;
 
     head->next = a;
     a->next = b;
@@ -66,13 +88,23 @@ int main()
     c->next = d;
 
     print_linked_list(head);
-    cout << endl;
+
+    cout << "Tail-> " << tail->val << endl;
 
     int pos, val;
     cin >> pos >> val;
+
     if (pos > size(head))
     {
         cout << "Invalid Index" << endl;
+    }
+    else if (pos == 0)
+    {
+        insert_head(head, val);
+    }
+    else if (pos == size(head))
+    {
+        insert_tail(head, tail, val);
     }
     else
     {
@@ -80,6 +112,8 @@ int main()
     }
 
     print_linked_list(head);
+
+    cout << "Tail-> " << tail->val << endl;
 
     return 0;
 }
