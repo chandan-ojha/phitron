@@ -28,23 +28,28 @@ void take_input(Node *&head, int v)
     tmp->next = newNode;
 }
 
-void print_middle_element(Node *head)
+int linked_list_size(Node *head)
 {
     Node *tmp = head;
-
     int count = 0;
-
     while (tmp != NULL)
     {
         count++;
         tmp = tmp->next;
     }
 
-    tmp = head;
+    return count;
+}
 
-    if (count % 2 != 0)
+void print_middle_element(Node *head)
+{
+    Node *tmp = head;
+
+    int size = linked_list_size(head);
+
+    if (size % 2 != 0)
     {
-        int mid_el = count / 2;
+        int mid_el = size / 2;
 
         for (int i = 0; i < mid_el; i++)
         {
@@ -55,7 +60,7 @@ void print_middle_element(Node *head)
     }
     else
     {
-        int mid_el = count / 2 - 1;
+        int mid_el = size / 2 - 1;
 
         for (int i = 0; i < mid_el; i++)
         {
