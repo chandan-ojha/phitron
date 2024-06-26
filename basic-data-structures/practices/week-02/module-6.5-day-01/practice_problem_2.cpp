@@ -30,10 +30,10 @@ void take_input(Node *&head, int v)
 
 void duplicate_value_check(Node *head)
 {
+    Node *tmp = head;
+
     int count[101] = {0};
     bool isDuplicate = false;
-
-    Node *tmp = head;
 
     while (tmp != NULL)
     {
