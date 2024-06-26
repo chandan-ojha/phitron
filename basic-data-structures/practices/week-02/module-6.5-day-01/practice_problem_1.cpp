@@ -32,43 +32,23 @@ void take_input(Node *&head, int v)
     tmp->next = newNode;
 }
 
-void count_linked_list_size(Node *head)
+int linked_list_size(Node *head)
 {
-    int count = 0;
     Node *tmp = head;
+    int count = 0;
     while (tmp != NULL)
     {
         count++;
         tmp = tmp->next;
     }
 
-    cout << "Linked List Size: " << count << endl
-         << endl;
-}
-
-void print_linked_list(Node *head)
-{
-    cout << endl;
-    cout << "Your Linked List: ";
-
-    Node *tmp = head;
-
-    while (tmp != NULL)
-    {
-        cout << tmp->val << " ";
-        tmp = tmp->next;
-    }
-    cout << endl
-         << endl;
+    return count;
 }
 
 int main()
 {
-
-    int val;
     Node *head = NULL;
-
-    cout << "Take Input: ";
+    int val;
 
     while (true)
     {
@@ -80,28 +60,9 @@ int main()
         take_input(head, val);
     }
 
-    while (true)
-    {
-        cout << "Option 1: Count Linked List Size" << endl;
-        cout << "Option 2: Display Linked List" << endl;
-        cout << "Option 3: Terminate" << endl;
+    int size = linked_list_size(head);
 
-        int op;
-        cin >> op;
-
-        if (op == 1)
-        {
-            count_linked_list_size(head);
-        }
-        else if (op == 2)
-        {
-            print_linked_list(head);
-        }
-        else if (op == 3)
-        {
-            break;
-        }
-    }
+    cout << size << endl;
 
     return 0;
 }
