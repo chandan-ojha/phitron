@@ -1,4 +1,3 @@
-// TODO
 #include <bits/stdc++.h>
 using namespace std;
 class Node
@@ -13,59 +12,70 @@ public:
     }
 };
 
-void take_input(Node *&head, int v)
+void insert_head(Node *&head, int val)
 {
-    Node *newNode = new Node(v);
+    Node *newNode = new Node(val);
+    newNode->next = head;
+    head = newNode;
+}
+
+void insert_tail(Node *&head, Node *&tail, int val)
+{
+    Node *newNode = new Node(val);
     if (head == NULL)
     {
         head = newNode;
+        tail = newNode;
         return;
     }
-    Node *tmp = head;
-    while (tmp->next != NULL)
-    {
-        tmp = tmp->next;
-    }
-    tmp->next = newNode;
+    tail->next = newNode;
+    tail = newNode;
 }
 
-void insert_at_position(Node *head, int index, int v)
+void insert_at_spec_pos(Node *head, int pos, int val)
 {
-    Node *newNode = new Node(v);
+    Node *newNode = new Node(val);
 
     Node *tmp = head;
 
-    for (int i = 1; i <= index - 1; i++)
+    for (int i = 1; i <= pos - 1; i++)
     {
         tmp = tmp->next;
-
-        if (tmp == NULL)
-        {
-            cout << "Invalid" << endl;
-
-            return;
-        }
     }
 
     newNode->next = tmp->next;
     tmp->next = newNode;
 }
 
+int size(Node *head)
+{
+    Node *tmp = head;
+    int count = 0;
+
+    while (tmp != NULL)
+    {
+        count++;
+        tmp = tmp->next;
+    }
+    return count;
+}
+
 void print_linked_list(Node *head)
 {
     Node *tmp = head;
-
     while (tmp != NULL)
     {
         cout << tmp->val << " ";
         tmp = tmp->next;
     }
+    cout << endl;
 }
 
 int main()
 {
-    int val;
     Node *head = NULL;
+    Node *tail = NULL;
+    int val;
 
     while (true)
     {
@@ -74,7 +84,7 @@ int main()
         {
             break;
         }
-        take_input(head, val);
+        insert_tail(head, tail, val);
     }
 
     int q;
@@ -82,11 +92,23 @@ int main()
 
     while (q--)
     {
-        int index, v;
-        cin >> index >> v;
-        insert_at_position(head, index, v);
-        print_linked_list(head);
-        cout << endl;
+        int pos, pos_val;
+        cin >> pos >> pos_val;
+
+        if (pos == 0)
+        {
+            insert_head(head, pos_val);
+            print_linked_list(head);
+        }
+        else if (pos > size(head))
+        {
+            cout << "Invalid" << endl;
+        }
+        else
+        {
+            insert_at_spec_pos(head, pos, pos_val);
+            print_linked_list(head);
+        }
     }
 
     return 0;
