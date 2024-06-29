@@ -57,6 +57,32 @@ void print_right_to_left(Node *tail)
     }
     cout << endl;
 }
+void insert_head(Node *&head, Node *&tail, int val)
+{
+    Node *newNode = new Node(val);
+    if (head == NULL)
+    {
+        head = newNode;
+        tail = newNode;
+        return;
+    }
+    newNode->next = head;
+    head->prev = newNode;
+    head = newNode;
+}
+void insert_tail(Node *&head, Node *&tail, int val)
+{
+    Node *newNode = new Node(val);
+    if (tail == NULL)
+    {
+        head = newNode;
+        tail = newNode;
+        return;
+    }
+    tail->next = newNode;
+    newNode->prev = tail;
+    tail = tail->next;
+}
 int main()
 {
     Node *head = new Node(10);
@@ -76,7 +102,15 @@ int main()
     int pos, val;
     cin >> pos >> val;
 
-    if (pos >= size(head))
+    if (pos == 0)
+    {
+        insert_head(head, tail, val);
+    }
+    else if (pos == size(head))
+    {
+        insert_tail(head, tail, val);
+    }
+    else if (pos > size(head))
     {
         cout << "Invalid" << endl;
     }
