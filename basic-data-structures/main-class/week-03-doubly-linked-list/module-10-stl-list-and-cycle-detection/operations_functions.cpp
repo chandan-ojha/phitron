@@ -5,7 +5,7 @@ int main()
     list<int> myList = {20, 40, 30, 10, 50, 10, 10};
 
     // myList.remove(10);
-    // sort(myList.begin(), myList.end());
+    // sort(myList.begin(), myList.end()); // not work
 
     // myList.sort(); // time complexity O(NlogN)
     // myList.sort(greater<int>());
