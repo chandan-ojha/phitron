@@ -1,0 +1,4 @@
+1) https://leetcode.com/problems/remove-linked-list-elements/description
+2) https://leetcode.com/problems/remove-nth-node-from-end-of-list/description
+3) https://leetcode.com/problems/swapping-nodes-in-a-linked-list/description
+4) https://leetcode.com/problems/merge-nodes-in-between-zeros/description
