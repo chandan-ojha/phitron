@@ -1,0 +1,5 @@
+1. https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/description
+2. https://leetcode.com/problems/intersection-of-two-linked-lists/description
+3. https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer
+4. https://leetcode.com/problems/merge-in-between-linked-lists/description
+5. https://leetcode.com/problems/swap-nodes-in-pairs/description
