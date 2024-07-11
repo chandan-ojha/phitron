@@ -1,0 +1,4 @@
+1) https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string
+2) https://leetcode.com/problems/time-needed-to-buy-tickets/description
+3) https://leetcode.com/problems/crawler-log-folder/description
+4) https://leetcode.com/problems/baseball-game/description
