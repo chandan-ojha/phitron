@@ -66,25 +66,40 @@ public:
         {
             head = newNode;
             tail = newNode;
-            return;
         }
-        tail->next = newNode;
-        tail = tail->next;
+        else
+        {
+            tail->next = newNode;
+            tail = tail->next;
+        }
     }
 
     void pop()
     {
-        sz--;
-        Node *deleteNode = tail;
-        if (tail == NULL)
+        if (sz == 0)
         {
+            return;
+        }
+
+        sz--;
+
+        if (head == tail)
+        {
+            delete head;
             head = NULL;
+            tail = NULL;
         }
         else
         {
+            Node *current = head;
+            while (current->next != tail)
+            {
+                current = current->next;
+            }
+            delete tail;
+            tail = current;
             tail->next = NULL;
         }
-        delete deleteNode;
     }
 
     int getTop()
