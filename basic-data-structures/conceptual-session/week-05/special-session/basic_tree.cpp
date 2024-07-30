@@ -64,10 +64,13 @@ int main()
     c->right = e;
 
     // print nodes
+    cout << "Pre Order: ";
     preOrder(a);
     cout << endl;
+    cout << "Post Order: ";
     postOrder(a);
     cout << endl;
+    cout << "In Order: ";
     inOrder(a);
     cout << endl;
 
